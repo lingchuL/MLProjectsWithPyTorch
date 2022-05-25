@@ -59,10 +59,10 @@ Optimizer = torch.optim.SGD(Model.parameters(), lr=0.35)
 
 train(Model, Optimizer, 100)
 
-torch.save(Model.state_dict(), r"D:\SomeMLProjects\MLProjectsWithPyTorch\Model.pth")
+torch.save(Model.state_dict(), r".\Model.pth")
 
 Model2 = LinearRegressionModel()
-Model2.load_state_dict(torch.load(r"D:\SomeMLProjects\MLProjectsWithPyTorch\Model.pth"))
+Model2.load_state_dict(torch.load(r".\Model.pth"))
 
 print(Model2(torch.tensor([[4]], dtype=torch.float, device=ComputeDevice)))
 
