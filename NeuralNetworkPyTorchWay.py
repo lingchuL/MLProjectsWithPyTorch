@@ -65,12 +65,6 @@ class NeuralNetworkModel(torch.nn.Module):
         return logits
 
 
-def getLoss(y_pred, y):
-    LossFunc = torch.nn.CrossEntropyLoss()
-    J = LossFunc(y_pred, y)
-    return J
-
-
 def train(dataloader, model, lossfunc, optimizer):
     model.train()
     for batch, (X, y) in enumerate(dataloader):
@@ -131,7 +125,7 @@ if __name__ == "__main__":
             X, y = X.to(ComputeDevice), y.to(ComputeDevice)
 
             pred = Model(X)
-            for i in range(64):
+            for i in range(4):
                 print(f"-------------------{i}----------------------")
                 print("It might be: ", labelType[pred.argmax(1)[i]])
                 print("It actually is: ", labelType[y[i]])
